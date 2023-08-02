@@ -1,11 +1,14 @@
 //your parameter variables go here!
-let rect_width  = 20;
-let rect_height = 20;
+var diamondY = 50;
+var diamondX = 35;
+var diamondWidth = 130;
+var diamondLength = 110;
+
 
 
 function setup_wallpaper(pWallpaper) {
-  pWallpaper.output_mode(DEVELOP_GLYPH);
-  pWallpaper.resolution(FIT_TO_SCREEN);
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_LANDSCAPE);
   pWallpaper.show_guide(true); //set this to false when you're ready to print
 
   //Grid settings
@@ -19,5 +22,23 @@ function wallpaper_background() {
 }
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
-  rect(40 ,40, rect_width, rect_height);
+
+  strokeWeight(4);
+  strokeJoin(ROUND);
+  stroke(0);
+  fill(255, 255, 255);
+  
+  drawDiamond(diamondX , diamondY, diamondWidth, diamondLength);
+
 }
+function drawDiamond(x, y, w, l) {
+  triangle((x + w/6), y, x, (y + l/3), (x + 7*w/24), (y + l/3));
+  triangle((x + w/6), y, (x + 7*w/24), (y + l/3), (x + w/2), y);
+  triangle((x + w/2), y, (x + 7*w/24), (y + l/3), (x + 17*w/24), (y + l/3));
+  triangle((x + w/2), y, (x + 5*w/6), y, (x + 17*w/24), (y + l/3));
+  triangle((x + 5*w/6), y, (x + 17*w/24), (y + l/3), (x + w), (y + l/3));
+  triangle(x, (y + l/3), (x + 7*w/24), (y + l/3), (x + w/2), (y + l));
+  triangle((x + 7*w/24), (y + l/3), (x + 17*w/24), (y + l/3), (x + w/2), (y + l));
+  triangle((x + 17*w/24), (y + l/3), (x + w), (y + l/3), (x + w/2), (y + l));
+}
+
