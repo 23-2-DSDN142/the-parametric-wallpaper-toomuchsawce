@@ -1,4 +1,5 @@
 //your parameter variables go here!
+var greenmode = true; //background change
 var diamondY = 50;
 var diamondX = 35;
 var diamondWidth = 130;
@@ -7,7 +8,12 @@ var starX = 20;
 var starY = 20;
 var xSize = 20;
 var ySize = 20;
-
+var rubyWidth = 150;
+var rubyLength = 100;
+var rubyX = 22;
+var rubyY = 50;
+var drawDiamondActive = false; // Variable to control whether the diamond is active
+var drawRubyActive = true;   // Variable to control whether the ruby is active
 
 
 function setup_wallpaper(pWallpaper) {
@@ -22,7 +28,14 @@ function setup_wallpaper(pWallpaper) {
 }
 
 function wallpaper_background() {
-  background(249, 42, 130); //light honeydew green colour
+
+  if (greenmode) {
+    // green background 
+    background(107,142,35);
+  } else {
+    // Daytime background (pink)
+    background(249, 42, 130);
+  }
 }
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
@@ -31,14 +44,19 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
   strokeJoin(ROUND);
   stroke(0);
   fill(255, 255, 255);
-  
-  drawDiamond(diamondX , diamondY, diamondWidth, diamondLength);
+
+  // Check if drawDiamond is active
+  if (drawDiamondActive) {
+    drawDiamond(diamondX, diamondY, diamondWidth, diamondLength);
+  } else if (drawRubyActive) {
+    // If drawRuby is active, activate drawRuby function
+    drawRuby(rubyX, rubyY, rubyWidth, rubyLength);
+  }
 
   fill(254,210,27);
-
-  drawStar(starX - 5, starY, xSize + 15, ySize + 5);
-  drawSecondStar(starX - 181, starY - 20, xSize + 20, ySize + 5);
-  drawThirdStar(starX + 32, starY - 10, xSize + 10, ySize);
+  drawStar(starX - 5, starY, xSize + 15, ySize + 15);
+  drawStar(starX +20, starY - 20, xSize + 20, ySize + 40);
+  drawStar(starX + 32, starY - 10, xSize + 10, ySize);
 
 }
 
@@ -122,3 +140,25 @@ function drawThirdStar(x, y, xSize, ySize) {
   curveVertex(x, y + ySize / (10 / 3));
   endShape();
 }
+
+function drawRuby(x, y, w, l) {
+  strokeWeight(4);
+  stroke(0);
+  fill(147,15,23);
+  triangle((x + w/6), y, x, (y + l/3), (x + 7*w/24), (y + l/3));
+  fill(236,22,34);
+  triangle((x + w/6), y, (x + 7*w/24), (y + l/3), (x + w/2), y);
+  fill(243,102,98);
+  triangle((x + w/2), y, (x + 7*w/24), (y + l/3), (x + 17*w/24), (y + l/3));
+  fill(153,13,22);
+  triangle((x + w/2), y, (x + 5*w/6), y, (x + 17*w/24), (y + l/3));
+  fill(147,15,23);
+  triangle((x + 5*w/6), y, (x + 17*w/24), (y + l/3), (x + w), (y + l/3));
+  fill(236,22,34);
+  triangle(x, (y + l/3), (x + 7*w/24), (y + l/3), (x + w/2), (y + l));
+  fill(236,22,34);
+  triangle((x + 7*w/24), (y + l/3), (x + 17*w/24), (y + l/3), (x + w/2), (y + l));
+  fill(153,13,22);
+  triangle((x + 17*w/24), (y + l/3), (x + w), (y + l/3), (x + w/2), (y + l));
+}
+
