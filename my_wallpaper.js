@@ -1,5 +1,5 @@
 //your parameter variables go here!
-var greenmode = true; //background change
+var yellowmode = true; //background change
 var diamondY = 50;
 var diamondX = 35;
 var diamondWidth = 130;
@@ -12,9 +12,15 @@ var rubyWidth = 150;
 var rubyLength = 100;
 var rubyX = 22;
 var rubyY = 50;
-var drawDiamondActive = false; // Variable to control whether the diamond is active
-var drawRubyActive = true;   // Variable to control whether the ruby is active
-
+var emeraldX = 48;
+var emeraldY = 50;
+var emeraldWidth = 100;
+var emeraldLength = 120;
+var drawDiamondActive = false; // variable to control whether the diamond is active
+var drawRubyActive = false;   // variable to control whether the ruby is active
+var drawEmeraldActive = false; // variable to control whether the emerald is active
+var threejewelsActive = true; // variable to control whether all three jewels are present
+var starsActive = false; // variable to control stars
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
@@ -29,9 +35,9 @@ function setup_wallpaper(pWallpaper) {
 
 function wallpaper_background() {
 
-  if (greenmode) {
-    // green background 
-    background(107,142,35);
+  if (yellowmode) {
+    // yellow background 
+    background(255, 255, 143);
   } else {
     // Daytime background (pink)
     background(249, 42, 130);
@@ -45,18 +51,39 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
   stroke(0);
   fill(255, 255, 255);
 
-  // Check if drawDiamond is active
   if (drawDiamondActive) {
     drawDiamond(diamondX, diamondY, diamondWidth, diamondLength);
-  } else if (drawRubyActive) {
-    // If drawRuby is active, activate drawRuby function
+
+  }
+
+  if (drawRubyActive) {
     drawRuby(rubyX, rubyY, rubyWidth, rubyLength);
   }
 
-  fill(254,210,27);
+  if (drawEmeraldActive) {
+    drawEmerald(emeraldX, emeraldY, emeraldWidth, emeraldLength);
+  }
+
+  if (threejewelsActive) {
+    drawDiamond(20, 40, 60, 40);
+    drawEmerald(85, 40, 60, 40);
+    drawRuby(150, 40, 60, 40);
+    fill(254,210,27);
+    drawStar(40, -80, 40, 40);
+    drawStar(45, -90, 40, 40);
+    drawStar(80, -90, 40, 40);
+    drawStar(90, -80, 40, 40);
+    drawStar(10, -80, 40, 40);
+    drawStar(80, -70, 40, 40);
+
+  }
+
+  if (starsActive) {
+  fill(254,210,27); 
   drawStar(starX - 5, starY, xSize + 15, ySize + 15);
   drawStar(starX +20, starY - 20, xSize + 20, ySize + 40);
   drawStar(starX + 32, starY - 10, xSize + 10, ySize);
+  }
 
 }
 
@@ -82,6 +109,7 @@ function drawDiamond(x, y, w, l) {
 
 function drawStar(x, y, xSize, ySize) {
   //draws star
+  push();
   translate(x, y)
   stroke(0); // Set the outline color to black
   strokeWeight(1); // Set the outline weight to 2 pixels
@@ -98,11 +126,12 @@ function drawStar(x, y, xSize, ySize) {
   curveVertex(x - xSize / 5, y + ySize / 2.5);
   curveVertex(x, y + ySize / (10 / 3));
   endShape();
-
+  pop();
 } 
 
 function drawSecondStar(x, y, xSize, ySize) {
   //draws star
+  push();
   translate(x, y)
   stroke(0); // Set the outline color to black
   strokeWeight(1); // Set the outline weight to 2 pixels
@@ -119,10 +148,12 @@ function drawSecondStar(x, y, xSize, ySize) {
   curveVertex(x - xSize / 5, y + ySize / 2.5);
   curveVertex(x, y + ySize / (10 / 3));
   endShape();
+  pop();
 }
 
 function drawThirdStar(x, y, xSize, ySize) {
   //draws star
+  push();
   translate(x, y)
   stroke(0); // Set the outline color to black
   strokeWeight(1); // Set the outline weight to 2 pixels
@@ -139,6 +170,7 @@ function drawThirdStar(x, y, xSize, ySize) {
   curveVertex(x - xSize / 5, y + ySize / 2.5);
   curveVertex(x, y + ySize / (10 / 3));
   endShape();
+  pop();
 }
 
 function drawRuby(x, y, w, l) {
@@ -159,6 +191,27 @@ function drawRuby(x, y, w, l) {
   fill(236,22,34);
   triangle((x + 7*w/24), (y + l/3), (x + 17*w/24), (y + l/3), (x + w/2), (y + l));
   fill(153,13,22);
+  triangle((x + 17*w/24), (y + l/3), (x + w), (y + l/3), (x + w/2), (y + l));
+}
+
+function drawEmerald(x, y, w, l) {
+  strokeWeight(4);
+  stroke(0);
+  fill(91,254,125);
+  triangle((x + w/6), y, x, (y + l/3), (x + 7*w/24), (y + l/3));
+  fill(3,155,35);
+  triangle((x + w/6), y, (x + 7*w/24), (y + l/3), (x + w/2), y);
+  fill(5,134,31);
+  triangle((x + w/2), y, (x + 7*w/24), (y + l/3), (x + 17*w/24), (y + l/3));
+  fill(0,222,48);
+  triangle((x + w/2), y, (x + 5*w/6), y, (x + 17*w/24), (y + l/3));
+  fill(91,254,125);
+  triangle((x + 5*w/6), y, (x + 17*w/24), (y + l/3), (x + w), (y + l/3));
+  fill(3,155,35);
+  triangle(x, (y + l/3), (x + 7*w/24), (y + l/3), (x + w/2), (y + l));
+  fill(5,134,31);
+  triangle((x + 7*w/24), (y + l/3), (x + 17*w/24), (y + l/3), (x + w/2), (y + l));
+  fill(5,134,31);
   triangle((x + 17*w/24), (y + l/3), (x + w), (y + l/3), (x + w/2), (y + l));
 }
 
