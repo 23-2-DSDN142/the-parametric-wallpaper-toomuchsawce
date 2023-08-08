@@ -9,45 +9,286 @@ Your final settings.txt will look something like this when you are finished:
 Wallpaper 1:
 
 //your parameter variables go here!
-let rect_width  = 20;
-let rect_height = 20;
-let paramter1 = 10;
-let paramter2 = true;
-let paramter3 = 50; 
-let paramter4 = 0; 
-let paramter5 = 60;
-
-function setup_wallpaper(pWallpaper) {
-  pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(NINE_LANDSCAPE);
-  pWallpaper.show_guide(false); //set this to false when you're ready to print
-
-  //Grid settings
-  pWallpaper.grid_settings.cell_width  = 100;
-  pWallpaper.grid_settings.cell_height = 100;
-  pWallpaper.grid_settings.row_offset  = 50;
-}
+var yellowmode = false; //background change
+var greenmode = false; //background change
+var daytime = true;
+var diamondY = 50;
+var diamondX = 35;
+var diamondWidth = 130;
+var diamondLength = 110;
+var starX = 20;
+var starY = 20;
+var xSize = 20;
+var ySize = 20;
+var rubyWidth = 150;
+var rubyLength = 100;
+var rubyX = 22;
+var rubyY = 50;
+var emeraldX = 48;
+var emeraldY = 50;
+var emeraldWidth = 100;
+var emeraldLength = 120;
+var nightstars = false;
+var drawDiamondActive = true; // variable to control whether the diamond is active
+var drawRubyActive = false;   // variable to control whether the ruby is active
+var drawEmeraldActive = false; // variable to control whether the emerald is active
+var threejewelsActive = false; // variable to control whether all three jewels are present
+var starsActive = false; // variable to control stars
+var nightmodeActive = false; //stars for night background
 
 /////////////////////////////////
 
 Wallpaper 2:
 
 //your parameter variables go here!
-let rect_width  = 10;
-let rect_height = 10;
-let paramter1 = 20;
-let paramter2 = false;
-let paramter3 = 50; 
-let paramter4 = 80; 
-let paramter5 = 30;
+var yellowmode = false; //background change
+var greenmode = false; //background change
+var daytime = true;
+var diamondY = 50;
+var diamondX = 35;
+var diamondWidth = 130;
+var diamondLength = 110;
+var starX = 20;
+var starY = 20;
+var xSize = 20;
+var ySize = 20;
+var rubyWidth = 150;
+var rubyLength = 100;
+var rubyX = 22;
+var rubyY = 50;
+var emeraldX = 48;
+var emeraldY = 50;
+var emeraldWidth = 100;
+var emeraldLength = 120;
+var nightstars = false;
+var drawDiamondActive = true; // variable to control whether the diamond is active
+var drawRubyActive = false;   // variable to control whether the ruby is active
+var drawEmeraldActive = false; // variable to control whether the emerald is active
+var threejewelsActive = false; // variable to control whether all three jewels are present
+var starsActive = true; // variable to control stars
+var nightmodeActive = false; //stars for night background
 
-function setup_wallpaper(pWallpaper) {
-  pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(NINE_LANDSCAPE);
-  pWallpaper.show_guide(false); //set this to false when you're ready to print
+/////////////////////////////////
 
-  //Grid settings
-  pWallpaper.grid_settings.cell_width  = 100;
-  pWallpaper.grid_settings.cell_height = 100;
-  pWallpaper.grid_settings.row_offset  = 0;
-}
+Wallpaper 3:
+
+//your parameter variables go here!
+var yellowmode = false; //background change
+var greenmode = true; //background change
+var daytime = false;
+var diamondY = 50;
+var diamondX = 35;
+var diamondWidth = 130;
+var diamondLength = 110;
+var starX = 20;
+var starY = 20;
+var xSize = 20;
+var ySize = 20;
+var rubyWidth = 150;
+var rubyLength = 100;
+var rubyX = 22;
+var rubyY = 50;
+var emeraldX = 48;
+var emeraldY = 50;
+var emeraldWidth = 100;
+var emeraldLength = 120;
+var nightstars = false;
+var drawDiamondActive = false; // variable to control whether the diamond is active
+var drawRubyActive = true;   // variable to control whether the ruby is active
+var drawEmeraldActive = false; // variable to control whether the emerald is active
+var threejewelsActive = false; // variable to control whether all three jewels are present
+var starsActive = true; // variable to control stars
+var nightmodeActive = false; //stars for night background
+
+/////////////////////////////////
+
+Wallpaper 4:
+
+//your parameter variables go here!
+var yellowmode = true; //background change
+var greenmode = false; //background change
+var daytime = false;
+var diamondY = 50;
+var diamondX = 35;
+var diamondWidth = 130;
+var diamondLength = 110;
+var starX = 20;
+var starY = 20;
+var xSize = 20;
+var ySize = 20;
+var rubyWidth = 150;
+var rubyLength = 100;
+var rubyX = 22;
+var rubyY = 50;
+var emeraldX = 48;
+var emeraldY = 50;
+var emeraldWidth = 100;
+var emeraldLength = 120;
+var nightstars = false;
+var drawDiamondActive = false; // variable to control whether the diamond is active
+var drawRubyActive = false;   // variable to control whether the ruby is active
+var drawEmeraldActive = true; // variable to control whether the emerald is active
+var threejewelsActive = false; // variable to control whether all three jewels are present
+var starsActive = true; // variable to control stars
+var nightmodeActive = false; //stars for night background
+
+/////////////////////////////////
+
+Wallpaper 5:
+
+//your parameter variables go here!
+var yellowmode = true; //background change
+var greenmode = false; //background change
+var daytime = false;
+var diamondY = 50;
+var diamondX = 35;
+var diamondWidth = 130;
+var diamondLength = 110;
+var starX = 20;
+var starY = 20;
+var xSize = 20;
+var ySize = 20;
+var rubyWidth = 150;
+var rubyLength = 100;
+var rubyX = 22;
+var rubyY = 50;
+var emeraldX = 48;
+var emeraldY = 50;
+var emeraldWidth = 100;
+var emeraldLength = 120;
+var nightstars = false;
+var drawDiamondActive = false; // variable to control whether the diamond is active
+var drawRubyActive = false;   // variable to control whether the ruby is active
+var drawEmeraldActive = false; // variable to control whether the emerald is active
+var threejewelsActive = true; // variable to control whether all three jewels are present
+var starsActive = false; // variable to control stars
+var nightmodeActive = false; //stars for night background
+
+/////////////////////////////////
+
+Wallpaper 6:
+
+//your parameter variables go here!
+var yellowmode = false; //background change
+var greenmode = false; //background change
+var daytime = false;
+var diamondY = 50;
+var diamondX = 35;
+var diamondWidth = 130;
+var diamondLength = 110;
+var starX = 20;
+var starY = 20;
+var xSize = 20;
+var ySize = 20;
+var rubyWidth = 150;
+var rubyLength = 100;
+var rubyX = 22;
+var rubyY = 50;
+var emeraldX = 48;
+var emeraldY = 50;
+var emeraldWidth = 100;
+var emeraldLength = 120;
+var nightstars = true;
+var drawDiamondActive = true; // variable to control whether the diamond is active
+var drawRubyActive = false;   // variable to control whether the ruby is active
+var drawEmeraldActive = false; // variable to control whether the emerald is active
+var threejewelsActive = false; // variable to control whether all three jewels are present
+var starsActive = false; // variable to control stars
+var nightmodeActive = true; //stars for night background
+
+
+/////////////////////////////////
+
+Wallpaper 7:
+
+//your parameter variables go here!
+var yellowmode = false; //background change
+var greenmode = false; //background change
+var daytime = false;
+var diamondY = 50;
+var diamondX = 35;
+var diamondWidth = 130;
+var diamondLength = 110;
+var starX = 20;
+var starY = 20;
+var xSize = 20;
+var ySize = 20;
+var rubyWidth = 150;
+var rubyLength = 100;
+var rubyX = 22;
+var rubyY = 50;
+var emeraldX = 48;
+var emeraldY = 50;
+var emeraldWidth = 100;
+var emeraldLength = 120;
+var nightstars = false;
+var drawDiamondActive = false; // variable to control whether the diamond is active
+var drawRubyActive = false;   // variable to control whether the ruby is active
+var drawEmeraldActive = false; // variable to control whether the emerald is active
+var threejewelsActive = true; // variable to control whether all three jewels are present
+var starsActive = true; // variable to control stars
+var nightmodeActive = true; //stars for night background
+
+/////////////////////////////////
+
+Wallpaper 8:
+
+//your parameter variables go here!
+var yellowmode = false; //background change
+var greenmode = true; //background change
+var daytime = false;
+var diamondY = 50;
+var diamondX = 35;
+var diamondWidth = 130;
+var diamondLength = 110;
+var starX = 20;
+var starY = 20;
+var xSize = 20;
+var ySize = 20;
+var rubyWidth = 150;
+var rubyLength = 100;
+var rubyX = 22;
+var rubyY = 50;
+var emeraldX = 48;
+var emeraldY = 50;
+var emeraldWidth = 100;
+var emeraldLength = 120;
+var nightstars = true;
+var drawDiamondActive = false; // variable to control whether the diamond is active
+var drawRubyActive = false;   // variable to control whether the ruby is active
+var drawEmeraldActive = true; // variable to control whether the emerald is active
+var threejewelsActive = false; // variable to control whether all three jewels are present
+var starsActive = false; // variable to control stars
+var nightmodeActive = false; //stars for night background
+
+/////////////////////////////////
+
+Wallpaper 9:
+
+//your parameter variables go here!
+var yellowmode = false; //background change
+var greenmode = false; //background change
+var daytime = true;
+var diamondY = 50;
+var diamondX = 35;
+var diamondWidth = 130;
+var diamondLength = 110;
+var starX = 20;
+var starY = 20;
+var xSize = 20;
+var ySize = 20;
+var rubyWidth = 150;
+var rubyLength = 100;
+var rubyX = 22;
+var rubyY = 50;
+var emeraldX = 48;
+var emeraldY = 50;
+var emeraldWidth = 100;
+var emeraldLength = 120;
+var nightstars = true;
+var drawDiamondActive = false; // variable to control whether the diamond is active
+var drawRubyActive = false;   // variable to control whether the ruby is active
+var drawEmeraldActive = false; // variable to control whether the emerald is active
+var threejewelsActive = true; // variable to control whether all three jewels are present
+var starsActive = true; // variable to control stars
+var nightmodeActive = false; //stars for night background
