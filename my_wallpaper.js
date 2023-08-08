@@ -1,5 +1,6 @@
 //your parameter variables go here!
 var yellowmode = false; //background change
+var greenmode = false; //background change
 var daytime = false;
 var diamondY = 50;
 var diamondX = 35;
@@ -17,17 +18,17 @@ var emeraldX = 48;
 var emeraldY = 50;
 var emeraldWidth = 100;
 var emeraldLength = 120;
-var nightstars = false;
-var drawDiamondActive = false; // variable to control whether the diamond is active
+var nightstars = true;
+var drawDiamondActive = true; // variable to control whether the diamond is active
 var drawRubyActive = false;   // variable to control whether the ruby is active
 var drawEmeraldActive = false; // variable to control whether the emerald is active
-var threejewelsActive = true; // variable to control whether all three jewels are present
-var starsActive = true; // variable to control stars
+var threejewelsActive = false; // variable to control whether all three jewels are present
+var starsActive = false; // variable to control stars
 var nightmodeActive = true; //stars for night background
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(NINE_LANDSCAPE);
+  pWallpaper.resolution(A3);
   pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
@@ -41,6 +42,11 @@ function wallpaper_background() {
   if (yellowmode) {
     // yellow background 
     background(255, 255, 143);
+  }
+
+  if (greenmode) {
+    // green background
+    background(106,142,34);
   }
   
   if (daytime) {
@@ -78,14 +84,6 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
     drawDiamond(20, 40, 60, 40);
     drawEmerald(85, 40, 60, 40);
     drawRuby(150, 40, 60, 40);
-    fill(254,210,27);
-    drawStar(40, -80, 40, 40);
-    drawStar(45, -90, 40, 40);
-    drawStar(80, -90, 40, 40);
-    drawStar(90, -80, 40, 40);
-    drawStar(10, -80, 40, 40);
-    drawStar(80, -70, 40, 40);
-
   }
 
   if (starsActive) {
@@ -131,7 +129,6 @@ function drawDiamond(x, y, w, l) {
 
 function drawStar(x, y, xSize, ySize) {
   //draws star
-  push();
   translate(x, y)
   stroke(0); // Set the outline color to black
   strokeWeight(1); // Set the outline weight to 2 pixels
@@ -148,7 +145,6 @@ function drawStar(x, y, xSize, ySize) {
   curveVertex(x - xSize / 5, y + ySize / 2.5);
   curveVertex(x, y + ySize / (10 / 3));
   endShape();
-  pop();
 } 
 
 function drawSecondStar(x, y, xSize, ySize) {
