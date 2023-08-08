@@ -1,5 +1,6 @@
 //your parameter variables go here!
-var yellowmode = true; //background change
+var yellowmode = false; //background change
+var daytime = false;
 var diamondY = 50;
 var diamondX = 35;
 var diamondWidth = 130;
@@ -16,11 +17,13 @@ var emeraldX = 48;
 var emeraldY = 50;
 var emeraldWidth = 100;
 var emeraldLength = 120;
+var nightstars = false;
 var drawDiamondActive = false; // variable to control whether the diamond is active
 var drawRubyActive = false;   // variable to control whether the ruby is active
 var drawEmeraldActive = false; // variable to control whether the emerald is active
 var threejewelsActive = true; // variable to control whether all three jewels are present
-var starsActive = false; // variable to control stars
+var starsActive = true; // variable to control stars
+var nightmodeActive = true; //stars for night background
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
@@ -38,11 +41,18 @@ function wallpaper_background() {
   if (yellowmode) {
     // yellow background 
     background(255, 255, 143);
-  } else {
+  }
+  
+  if (daytime) {
     // Daytime background (pink)
     background(249, 42, 130);
   }
+
+  if (nightmodeActive) { //black background 
+    background(0,0,0);
+  }
 }
+
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
 
@@ -83,6 +93,18 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
   drawStar(starX - 5, starY, xSize + 15, ySize + 15);
   drawStar(starX +20, starY - 20, xSize + 20, ySize + 40);
   drawStar(starX + 32, starY - 10, xSize + 10, ySize);
+  }
+
+  if (nightstars) {
+  fill(255,255,255); 
+  drawStar(starX, starY, xSize, ySize);
+  drawStar(starX + 10, starY, xSize, ySize);
+  drawStar(starX + 20, starY, xSize, ySize);
+  drawStar(starX + 30, starY, xSize, ySize);
+  drawStar(starX + 40, starY, xSize, ySize);
+  drawStar(starX + 50, starY, xSize, ySize);
+  drawStar(starX + 60, starY, xSize, ySize);
+    
   }
 
 }
@@ -214,4 +236,5 @@ function drawEmerald(x, y, w, l) {
   fill(5,134,31);
   triangle((x + 17*w/24), (y + l/3), (x + w), (y + l/3), (x + w/2), (y + l));
 }
+
 
